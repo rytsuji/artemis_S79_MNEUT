@@ -1,0 +1,66 @@
+anchor:
+  - &tmin -3400
+  - &tmax -3350
+  - &tdiffmin  -20
+  - &tdiffmax  20
+  - &qmin  0
+  - &qmax  32000
+  - &qdiffmin -16000
+  - &qdiffmax  16000
+  
+include:
+  - name: hist/mneut/mneut.tmpl.hist.yaml
+    replace:
+      ID:   0
+      TMIN: *tmin 
+      TMAX: *tmax
+      QMIN: *qmin
+      QMAX: *qmax
+      TDIFFMIN: *tdiffmin
+      TDIFFMAX: *tdiffmax
+      QDIFFMIN: *qdiffmin
+      QDIFFMAX: *qdiffmax
+
+#   - name: hist/mneut/mneut.tmpl.hist.yaml
+#     replace:
+#       ID:   1
+#       TMIN: *tmin 
+#       TMAX: *tmax
+#       QMIN: *qmin
+#       QMAX: *qmax
+#       TDIFFMIN: *tdiffmin
+#       TDIFFMAX: *tdiffmax
+#       QDIFFMIN: *qdiffmin
+#       QDIFFMAX: *qdiffmax
+
+#   - name: hist/mneut/mneut.tmpl.hist.yaml
+#     replace:
+#       ID:   2
+#       TMIN: *tmin 
+#       TMAX: *tmax
+#       QMIN: *qmin
+#       QMAX: *qmax
+#       TDIFFMIN: *tdiffmin
+#       TDIFFMAX: *tdiffmax
+#       QDIFFMIN: *qdiffmin
+#       QDIFFMAX: *qdiffmax
+
+#   - name: hist/mneut/mneut.tmpl.hist.yaml
+#     replace:
+#       ID:   3
+#       TMIN: *tmin 
+#       TMAX: *tmax
+#       QMIN: *qmin
+#       QMAX: *qmax
+#       TDIFFMIN: *tdiffmin
+#       TDIFFMAX: *tdiffmax
+#       QDIFFMIN: *qdiffmin
+#       QDIFFMAX: *qdiffmax      
+
+# # Correlation of MNEUT plastic      
+#   - name: hist/mneut/mneut.corr.hist.yaml
+#     replace:
+#       QMIN: *qmin
+#       QMAX: *qmax
+#       TDIFFMIN: *tdiffmin
+#       TDIFFMAX: *tdiffmax

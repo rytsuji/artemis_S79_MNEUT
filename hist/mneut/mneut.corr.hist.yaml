@@ -1,0 +1,53 @@
+anchor:
+  - &tbin 400
+  - &tdiffmin  @TDIFFMIN@
+  - &tdiffmax  @TDIFFMAX@
+  - &qbin  400
+  - &qmin  @QMIN@
+  - &qmax  @QMAX@
+
+group:
+  - name: mneut_corr
+    title: MNEUT Correlation
+    contents:
+      - name:  q_ave_01
+        title: MNEUT Average Charge 0 vs 1
+        x: ["mneut0.GetQAve()", *qbin, *qmin, *qmax]
+        y: ["mneut1.GetQAve()", *qbin, *qmin, *qmax]
+        
+      - name:  q_ave_02
+        title: MNEUT Average Charge 0 vs 2
+        x: ["mneut0.GetQAve()", *qbin, *qmin, *qmax]
+        y: ["mneut2.GetQAve()", *qbin, *qmin, *qmax]
+
+      - name:  q_ave_03
+        title: MNEUT Average Charge 0 vs 3
+        x: ["mneut0.GetQAve()", *qbin, *qmin, *qmax]
+        y: ["mneut3.GetQAve()", *qbin, *qmin, *qmax]
+
+      - name:  t_diff_01
+        title: MNEUT Timing Difference 0 vs 1
+        x: ["mneut0.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+        y: ["mneut1.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+
+      - name:  t_diff_02
+        title: MNEUT Timing Difference 0 vs 2
+        x: ["mneut0.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+        y: ["mneut2.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+
+      - name:  t_diff_03
+        title: MNEUT Timing Difference 0 vs 3
+        x: ["mneut0.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+        y: ["mneut3.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+
+      - name:  tof_01
+        title: MNEUT T1 -T0
+        x: ["mneut1.GetTAve()-mneut0.GetTAve()", *tbin, *tdiffmin, *tdiffmax]
+
+      - name:  tof_02
+        title: MNEUT T2 -T0
+        x: ["mneut2.GetTAve()-mneut0.GetTAve()", *tbin, *tdiffmin, *tdiffmax]
+
+      - name:  tof_03
+        title: MNEUT T3 -T0
+        x: ["mneut3.GetTAve()-mneut0.GetTAve()", *tbin, *tdiffmin, *tdiffmax]                

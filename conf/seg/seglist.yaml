@@ -1,0 +1,16 @@
+###################################
+#<Example>
+#
+#BLD_VXX:
+# segid: [[dev], [fp], [det]]
+# type: V7XX
+# modules:
+#   - id: [geo1]
+#   - id: [geo2]
+###################################
+
+MNEUT_MDPPQDC:
+  segid: [1, 39, 60]
+  type: MDPPQDC
+  modules:
+    - id: 0

@@ -1,0 +1,82 @@
+anchor:
+  - &tbin 200
+  - &tmin @TMIN@
+  - &tmax @TMAX@
+  - &tdiffmin  @TDIFFMIN@
+  - &tdiffmax  @TDIFFMAX@
+  - &qbin  200
+  - &qmin  @QMIN@
+  - &qmax  @QMAX@
+  - &qdiffmin @QDIFFMIN@
+  - &qdiffmax @QDIFFMAX@
+
+group:
+  - name: mneut@ID@
+    title: MNEUT@ID@
+    contents:
+      - name: t_@ID@_l
+        title: MNEUT@ID@ Left Timing
+        x: ["mneut@ID@_l.fTiming", *tbin, *tmin, *tmax]
+      - name: t_@ID@_r
+        title: MNEUT@ID@ Right Timing
+        x: ["mneut@ID@_r.fTiming", *tbin, *tmin, *tmax]        
+
+      - name: t_@ID@_ave
+        title: MNEUT@ID@ Average Timing
+        x: ["mneut@ID@.GetTAve()", *tbin, *tmin, *tmax]
+      - name: t_@ID@_diff
+        title: MNEUT@ID@ Timing Differnce
+        x: ["mneut@ID@.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+      - name: t_@ID@_lr
+        title: MNEUT@ID@ LTiming vs R Timing
+        x: ["mneut@ID@_l.fTiming", *tbin, *tmin, *tmax]
+        y: ["mneut@ID@_r.fTiming", *tbin, *tmin, *tmax]
+
+      - name:  q_@ID@_l
+        title: MNEUT@ID@ Left Charge
+        x: ["mneut@ID@_l.fCharge", *qbin, *qmin, *qmax]
+      - name:  q_@ID@_r
+        title: MNEUT@ID@ Right Charge
+        x: ["mneut@ID@_l.fCharge", *qbin, *qmin, *qmax]        
+      - name:  q_@ID@_ave
+        title: MNEUT@ID@ Average Charge
+        x: ["mneut@ID@.GetQAve()", *qbin, *qmin, *qmax]
+      - name:  q_@ID@_diff
+        title: MNEUT@ID@ Charge Difference
+        x: ["mneut@ID@.GetQDiff()", *qbin, *qdiffmin, *qdiffmax]
+      - name:  q_@ID@_lr
+        title: MNEUT@ID@ L Charge vs R Charge
+        x: ["mneut@ID@_l.fCharge", *qbin, *qmin, *qmax]
+        y: ["mneut@ID@_r.fCharge", *qbin, *qmin, *qmax]
+
+      - name:  tq_@ID@_l
+        title: MNEUT@ID@ Left Timing vs Charge
+        x: ["mneut@ID@_l.fTiming", *tbin, *tmin, *tmax]
+        y: ["mneut@ID@_l.fCharge", *qbin, *qmin, *qmax]
+
+      - name:  tq_@ID@_r
+        title: MNEUT@ID@ Right Timing vs Charge
+        x: ["mneut@ID@_r.fTiming", *tbin, *tmin, *tmax]
+        y: ["mneut@ID@_r.fCharge", *qbin, *qmin, *qmax]
+
+      - name:  tdiff_q_@ID@_l
+        title: MNEUT@ID@ Left Timing vs Charge
+        x: ["mneut@ID@.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+        y: ["mneut@ID@_l.fCharge", *qbin, *qmin, *qmax]                                
+        
+      - name:  tdiff_q_@ID@_r
+        title: MNEUT@ID@ Right Timing vs Charge
+        x: ["mneut@ID@.GetTDiff()", *tbin, *tdiffmin, *tdiffmax]
+        y: ["mneut@ID@_r.fCharge", *qbin, *qmin, *qmax]                        
+        
+      - name: mul_@ID@_l
+        title: MNEUT@ID@ Left Multiplicity
+        x: ["mneut@ID@_l@.GetEntriesFast()", 6, -0.5, 5.5]
+
+      - name: mul_@ID@_r
+        title: MNEUT@ID@ Right Multiplicity
+        x: ["mneut@ID@_r@.GetEntriesFast()", 6, -0.5, 5.5]
+
+      - name: mul_@ID@
+        title: MNEUT@ID@ Multiplicity
+        x: ["mneut@ID@@.GetEntriesFast()", 6, -0.5, 5.5]

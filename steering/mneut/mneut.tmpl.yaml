@@ -1,0 +1,61 @@
+Processor:
+  - name: proc_mneut@ID@_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_mneut@ID@_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mneut/prm_mneut@ID@_ch2ns.dat
+
+  - name: proc_MNEUT@ID@_prm_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_mneut@ID@_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/mneut/prm_mneut@ID@_ch2MeV.dat
+
+  - name: proc_mneut@ID@_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              @CID@
+      ChargeType:         2
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   mneut@ID@_raw
+      OutputTransparency: 0
+
+  - name: proc_mneut@ID@_calib
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      mneut@ID@_raw
+      OutputCollection:     mneut@ID@_cal
+      TimingConverterArray: prm_mneut@ID@_ch2ns
+      ChargeConverterArray: prm_mneut@ID@_ch2MeV
+
+  - name: proc_mneut@ID@_separater
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: mneut@ID@_cal
+      OutputCollections:
+        - mneut@ID@_l
+        - mneut@ID@_r
+        
+  - name: proc_mneut@ID@_l_validate
+    type: art::TTimeValidator
+    parameter:
+      InputCollection:  mneut@ID@_l
+      OutputCollection: mneut@ID@_l_val
+      ValidTimeRange: @TGATE@
+
+  - name: proc_mneut@ID@_r_validate
+    type: art::TTimeValidator
+    parameter:
+      InputCollection:  mneut@ID@_r
+      OutputCollection: mneut@ID@_r_val
+      ValidTimeRange: @TGATE@
+        
+  - name: proc_mneut@ID@
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: mneut@ID@_l_val
+      InputCollection2: mneut@ID@_r_val
+      OutputCollection: mneut@ID@

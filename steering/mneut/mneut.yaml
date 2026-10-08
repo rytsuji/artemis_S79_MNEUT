@@ -1,0 +1,29 @@
+Processor:
+  
+  - include:
+      name: mneut.tmpl.yaml
+      replace:
+        CID: 40
+        ID:  0 
+        TGATE: [-9999., 9999.,0]
+
+#  - include:
+#      name: mneut.tmpl.yaml
+#      replace:
+#        CID: 41
+#        ID:  1 
+#        TGATE: [-9999., 9999.,0]
+
+#  - include:
+#      name: mneut.tmpl.yaml
+#      replace:
+#        CID: 42
+#        ID:  2 
+#        TGATE: [-9999., 9999.,0]
+
+#  - include:
+#      name: mneut.tmpl.yaml
+#      replace:
+#        CID: 43
+#        ID:  3 
+#        TGATE: [-9999., 9999.,0]                        
